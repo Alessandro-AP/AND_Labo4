@@ -33,7 +33,7 @@ abstract class DB : RoomDatabase() {
                 INSTANCE = Room.databaseBuilder(
                     context.applicationContext,
                     DB::class.java,
-                    "lab4_DB.db"
+                    "lab4_DB"
                 )
 //                    .addMigrations()
 //                    .fallbackToDestructiveMigration()

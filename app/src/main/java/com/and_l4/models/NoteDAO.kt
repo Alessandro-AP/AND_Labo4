@@ -17,12 +17,19 @@ interface NoteDAO {
     @Delete
     fun delete(schedule: Schedule)
 
-    @Query("DELETE FROM note")
-    fun deleteAll()
+    @Query("DELETE FROM note") // TODO delete from schedule dans la même requete ?
+    fun deleteAllNotes()
+
+    @Query("DELETE FROM schedule")
+    fun deleteAllSchedules()
 
     @Transaction
     @Query("SELECT * FROM note")
     fun getAllNotes(): LiveData<List<NoteAndSchedule>>
+
+    @Transaction
+    @Query("SELECT * FROM note")
+    fun getAllNotesNoLiveData(): List<NoteAndSchedule>
 
     @Query("SELECT COUNT(*) FROM note")
     fun getCount(): LiveData<Int>

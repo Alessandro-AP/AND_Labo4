@@ -1,7 +1,6 @@
 package com.and_l4.repositories
 
 import com.and_l4.models.Note
-import com.and_l4.models.NoteAndSchedule
 import com.and_l4.models.NoteDAO
 import com.and_l4.models.Schedule
 import kotlinx.coroutines.CoroutineScope
@@ -25,7 +24,7 @@ class DataRepository(private val noteDAO: NoteDAO, private val scope : Coroutine
 
     fun deleteAll() {
         scope.launch(Dispatchers.IO) {
-            noteDAO.deleteAll()
+            noteDAO.deleteAllNotes()
         }
     }
 }
