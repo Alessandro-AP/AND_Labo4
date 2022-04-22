@@ -24,6 +24,7 @@ class DataRepository(private val noteDAO: NoteDAO, private val scope : Coroutine
 
     fun deleteAll() {
         scope.launch(Dispatchers.IO) {
+            noteDAO.deleteAllSchedules()
             noteDAO.deleteAllNotes()
         }
     }

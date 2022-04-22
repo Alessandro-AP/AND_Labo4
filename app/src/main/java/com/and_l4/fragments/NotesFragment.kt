@@ -14,11 +14,6 @@ import com.and_l4.models.NoteAndSchedule
 import com.and_l4.viewModels.NotesViewModel
 import com.and_l4.viewModels.NotesViewModelFactory
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [NotesFragment.newInstance] factory method to
@@ -30,18 +25,6 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
         NotesViewModelFactory((requireActivity().application as MyApp).repository)
     }
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//    }
-
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_notes, container, false)
-//    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -50,7 +33,9 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(context)
 
-        adapter.items = notesViewModel.allNotes.value?: listOf<NoteAndSchedule>()
+        notesViewModel.allNotes.observe(viewLifecycleOwner) { value ->
+            adapter.items = value
+        }
     }
 
     companion object {
