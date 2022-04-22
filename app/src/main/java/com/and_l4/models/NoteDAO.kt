@@ -1,12 +1,26 @@
 package com.and_l4.models
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface NoteDAO {
 
+    @Insert
+    fun insert(note: Note): Long
+
+    @Insert
+    fun insert(schedule: Schedule): Long
+
+    @Delete
+    fun delete(note: Note)
+    @Delete
+    fun delete(schedule: Schedule)
+
+    @Query("DELETE FROM note")
+    fun deleteAll()
+
+    @Transaction
     @Query("SELECT * FROM note")
     fun getAllNotes(): LiveData<List<NoteAndSchedule>>
 

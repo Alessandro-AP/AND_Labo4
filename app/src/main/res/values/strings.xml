@@ -7,4 +7,6 @@
     <string name="main_actionBar_eta">ETA</string>
     <string name="main_menu_generate">Generate</string>
     <string name="main_menu_delete_all">Delete all</string>
+    <string name="frag_ctrl_generate_btn">Generate</string>
+    <string name="frag_ctrl_delete_btn">Delete</string>
 </resources>
