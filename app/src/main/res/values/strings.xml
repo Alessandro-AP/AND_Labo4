@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">AND_L4</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_actionBar_sort">sort</string>
     <string name="main_actionBar_creation_date">Creation date</string>
     <string name="main_actionBar_eta">ETA</string>
@@ -10,4 +8,6 @@
     <string name="frag_ctrl_generate_btn">Generate</string>
     <string name="frag_ctrl_delete_btn">Delete</string>
     <string name="frag_notes_title">My notes</string>
+    <string name="note_outdated">Late</string>
+    <string name="note_due_date">%1$d days</string>
 </resources>

@@ -27,10 +27,6 @@ interface NoteDAO {
     @Query("SELECT * FROM note")
     fun getAllNotes(): LiveData<List<NoteAndSchedule>>
 
-    @Transaction
-    @Query("SELECT * FROM note")
-    fun getAllNotesNoLiveData(): List<NoteAndSchedule> // TODO delete after finish debugging
-
     @Query("SELECT COUNT(*) FROM note")
     fun getCount(): LiveData<Int>
 }

@@ -29,7 +29,7 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
         super.onViewCreated(view, savedInstanceState)
 
         val recycler = view.findViewById<RecyclerView>(R.id.frag_notes_recyclerView)
-        val adapter = NotesAdapter()
+        val adapter = NotesAdapter(context)
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(context)
 
