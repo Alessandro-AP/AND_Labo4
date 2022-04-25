@@ -4,15 +4,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.and_l4.models.Note
 import com.and_l4.models.NoteDAO
 import com.and_l4.models.Schedule
+import com.and_l4.models.converters.CalendarConverter
 
 @Database(
     entities = [Note::class, Schedule::class],
     version = 1,
     exportSchema = true
 )
+@TypeConverters(CalendarConverter::class)
 abstract class DB : RoomDatabase() {
 
     abstract fun noteDAO(): NoteDAO
