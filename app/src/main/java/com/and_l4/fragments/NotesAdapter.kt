@@ -5,13 +5,14 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.and_l4.R
 import com.and_l4.databinding.ListItemNoteBinding
 import com.and_l4.models.NoteAndSchedule
 import com.and_l4.models.State
 import com.and_l4.models.Type
-import java.util.*
+import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
 class NotesAdapter(private val context: Context?) :
@@ -19,12 +20,19 @@ class NotesAdapter(private val context: Context?) :
 
     var items = listOf<NoteAndSchedule>()
         set(value) {
-//            val diffCallback = NotesDiffCallback(items, value) // TODO alternative pour question 6.2
-//            val diffItems = DiffUtil.calculateDiff(diffCallback)
+            val diffCallback = NotesDiffCallback(items, value)
+            val diffItems = DiffUtil.calculateDiff(diffCallback)
             field = value
-//            diffItems.dispatchUpdatesTo(this)
-            notifyDataSetChanged()
+            diffItems.dispatchUpdatesTo(this)
         }
+
+    fun sortItemsByDate(){
+        items = items.sortedBy { it.note.creationDate }
+    }
+
+    fun sortItemsByETA(){
+        items = items.sortedBy { it.schedule?.date }
+    }
 
     override fun getItemCount() = items.size
 
@@ -94,18 +102,17 @@ class NotesAdapter(private val context: Context?) :
 
 }
 
-// TODO alternative pour question 6.2 -> remove after questions
-//class NotesDiffCallback(private val oldList: List<NoteAndSchedule>, private val newList: List<NoteAndSchedule>) : DiffUtil.Callback() {
-//    override fun getOldListSize() = oldList.size
-//    override fun getNewListSize() = newList.size
-//
-//    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-//        return oldList[oldItemPosition].note.noteId == newList[newItemPosition].note.noteId
-//    }
-//
-//    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-//        val old = oldList[oldItemPosition]
-//        val new = newList[newItemPosition]
-//        return old::class == new::class && old.note == new.note
-//    }
-//}
+class NotesDiffCallback(private val oldList: List<NoteAndSchedule>, private val newList: List<NoteAndSchedule>) : DiffUtil.Callback() {
+    override fun getOldListSize() = oldList.size
+    override fun getNewListSize() = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition].note.noteId == newList[newItemPosition].note.noteId
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        val old = oldList[oldItemPosition]
+        val new = newList[newItemPosition]
+        return old::class == new::class && old.note == new.note
+    }
+}
