@@ -5,15 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.and_l4.models.Note
-import com.and_l4.models.NoteAndSchedule
 import com.and_l4.models.NoteDAO
 import com.and_l4.models.Schedule
 import com.and_l4.models.converters.CalendarConverter
 import com.and_l4.models.converters.StateConverter
 import com.and_l4.models.converters.TypeEnumConverter
-import kotlin.concurrent.thread
 
 @Database(
     entities = [Note::class, Schedule::class],

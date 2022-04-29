@@ -2,7 +2,7 @@ package com.and_l4.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
+import java.util.Calendar
 
 @Entity
 data class Schedule(

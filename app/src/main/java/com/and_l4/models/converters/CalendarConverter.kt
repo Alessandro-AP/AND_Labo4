@@ -1,7 +1,9 @@
 package com.and_l4.models.converters
 
 import androidx.room.TypeConverter
-import java.util.*
+import java.util.Date
+import java.util.Calendar
+
 
 class CalendarConverter {
     @TypeConverter

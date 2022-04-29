@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.and_l4.fragments.NotesFragment
 import com.and_l4.viewModels.NotesViewModel
@@ -20,13 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        if (supportFragmentManager.backStackEntryCount == 0) {
-            notesFragment = NotesFragment.newInstance()
-            supportFragmentManager.beginTransaction()
-                .add(R.id.notesFrag, notesFragment)
-                .commit()
-        }
+        notesFragment = supportFragmentManager.findFragmentById(R.id.notesFrag) as NotesFragment
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -35,11 +28,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
-            R.id.main_menu_generate -> { notesViewModel.generateANote(); true }
-            R.id.main_menu_delete -> { notesViewModel.deleteAllNote(); true }
-            R.id.main_menu_sort_creationDate -> { notesFragment.adapter.sortItemsByDate(); true }
-            R.id.main_menu_sort_eta -> { notesFragment.adapter.sortItemsByETA(); true }
+        return when (item.itemId) {
+            R.id.main_menu_generate -> {
+                notesViewModel.generateANote(); true
+            }
+            R.id.main_menu_delete -> {
+                notesViewModel.deleteAllNote(); true
+            }
+            R.id.main_menu_sort_creationDate -> {
+                notesFragment.adapter.sortItemsByDate(); true
+            }
+            R.id.main_menu_sort_eta -> {
+                notesFragment.adapter.sortItemsByETA(); true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

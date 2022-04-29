@@ -8,25 +8,8 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/notesFrag"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ctrlFrag"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/ctrlFrag"
-        android:name="com.and_l4.fragments.NotesCtrlFrag"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/notesFrag"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/fragment_notes_ctrl" />
+        android:name="com.and_l4.fragments.NotesFragment"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

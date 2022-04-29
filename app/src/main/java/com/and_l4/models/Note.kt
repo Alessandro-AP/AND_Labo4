@@ -2,7 +2,8 @@ package com.and_l4.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
+import java.util.Calendar
+import java.util.Random
 
 
 @Entity

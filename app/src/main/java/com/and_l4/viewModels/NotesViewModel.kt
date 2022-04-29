@@ -1,6 +1,5 @@
 package com.and_l4.viewModels
 
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import com.and_l4.models.Note
 import com.and_l4.repositories.DataRepository
