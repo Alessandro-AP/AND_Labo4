@@ -1,7 +1,13 @@
-package com.and_l4.models
+// AND - Labo 4
+// Authors : Alessandro Parrino, Daniel Sciarra, Wilfried Karel Ngueukam Djeuda ◕◡◕
+// Date: 01.05.22
+package com.and_l4.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.and_l4.room.models.Note
+import com.and_l4.room.models.NoteAndSchedule
+import com.and_l4.room.models.Schedule
 
 @Dao
 interface NoteDAO {

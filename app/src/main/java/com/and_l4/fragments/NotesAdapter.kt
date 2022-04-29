@@ -1,3 +1,6 @@
+// AND - Labo 4
+// Authors : Alessandro Parrino, Daniel Sciarra, Wilfried Karel Ngueukam Djeuda ◕◡◕
+// Date: 01.05.22
 package com.and_l4.fragments
 
 import android.content.Context
@@ -9,9 +12,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.and_l4.R
 import com.and_l4.databinding.ListItemNoteBinding
-import com.and_l4.models.NoteAndSchedule
-import com.and_l4.models.State
-import com.and_l4.models.Type
+import com.and_l4.room.models.NoteAndSchedule
+import com.and_l4.room.models.State
+import com.and_l4.room.models.Type
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
 

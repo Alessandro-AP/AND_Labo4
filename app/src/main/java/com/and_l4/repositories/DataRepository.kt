@@ -1,8 +1,11 @@
+// AND - Labo 4
+// Authors : Alessandro Parrino, Daniel Sciarra, Wilfried Karel Ngueukam Djeuda ◕◡◕
+// Date: 01.05.22
 package com.and_l4.repositories
 
-import com.and_l4.models.Note
-import com.and_l4.models.NoteDAO
-import com.and_l4.models.Schedule
+import com.and_l4.room.models.Note
+import com.and_l4.room.NoteDAO
+import com.and_l4.room.models.Schedule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
