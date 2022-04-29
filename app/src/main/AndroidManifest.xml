@@ -11,9 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AND_L4">
         <activity
+            android:name=".MainActivityTabletMode"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:label="Labo 4"
-            android:exported="true">
+            android:exported="true"
+            android:label="Labo 4">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

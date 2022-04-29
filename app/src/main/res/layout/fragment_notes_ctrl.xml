@@ -11,6 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
+        android:textSize="84dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ctrl_frag_generate_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
