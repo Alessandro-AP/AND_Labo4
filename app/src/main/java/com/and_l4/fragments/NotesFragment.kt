@@ -19,9 +19,7 @@ import com.and_l4.MainActivity.Companion.USER_CHOICE
 import com.and_l4.MainActivity.Companion.ETA
 
 /**
- * A simple [Fragment] subclass.
- * Use the [NotesFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * A fragment showing all the notes in a RecyclerView.
  */
 class NotesFragment : Fragment(R.layout.fragment_notes) {
 

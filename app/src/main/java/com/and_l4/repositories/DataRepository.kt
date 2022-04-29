@@ -10,6 +10,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ * Repository managing notes.
+ */
 class DataRepository(private val noteDAO: NoteDAO, private val scope : CoroutineScope) {
 
     val allNotes = noteDAO.getAllNotes() //: LiveData<List<NoteAndSchedule>>

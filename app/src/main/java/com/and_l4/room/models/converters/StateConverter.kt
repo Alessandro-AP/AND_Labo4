@@ -6,6 +6,9 @@ package com.and_l4.room.models.converters
 import androidx.room.TypeConverter
 import com.and_l4.room.models.State
 
+/**
+ * Converter to manage State enum with the database.
+ */
 class StateConverter {
     @TypeConverter
     fun fromStateEnum(state: State) = state.name

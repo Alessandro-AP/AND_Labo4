@@ -14,6 +14,9 @@ import com.and_l4.room.models.converters.CalendarConverter
 import com.and_l4.room.models.converters.StateConverter
 import com.and_l4.room.models.converters.TypeEnumConverter
 
+/**
+ * Database storing notes.
+ */
 @Database(
     entities = [Note::class, Schedule::class],
     version = 1,

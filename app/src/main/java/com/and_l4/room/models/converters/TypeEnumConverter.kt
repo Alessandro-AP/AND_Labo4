@@ -6,6 +6,9 @@ package com.and_l4.room.models.converters
 import androidx.room.TypeConverter
 import com.and_l4.room.models.Type
 
+/**
+ * Converter to manage Type enum with the database.
+ */
 class TypeEnumConverter {
     @TypeConverter
     fun fromTypeEnum(type: Type) = type.name

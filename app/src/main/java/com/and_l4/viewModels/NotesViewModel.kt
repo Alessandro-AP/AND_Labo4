@@ -7,18 +7,25 @@ import androidx.lifecycle.ViewModel
 import com.and_l4.room.models.Note
 import com.and_l4.repositories.DataRepository
 
+/**
+ * ViewModel managing interaction with the data through the repository.
+ */
 class NotesViewModel(private val repository: DataRepository) : ViewModel() {
 
     val allNotes = repository.allNotes //: LiveData<List<NoteAndSchedule>>
     val countNotes = repository.countNotes //: LiveData<Int>
 
+    /**
+     * Generate a random note and insert it into the database.
+     */
     fun generateANote() {
-        /* création d’une Note aléatoire et insertion dans base de données */
         repository.insertNote(Note.generateRandomNote(), Note.generateRandomSchedule())
     }
 
+    /**
+     * Delete all notes from the database.
+     */
     fun deleteAllNote() {
-        /* suppression de toutes les Notes de la base de données */
         repository.deleteAll()
     }
 }

@@ -14,6 +14,9 @@ import androidx.core.content.edit
 import com.and_l4.viewModels.NotesViewModel
 import com.and_l4.viewModels.NotesViewModelFactory
 
+/**
+ * Application entry point.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var prefs: SharedPreferences

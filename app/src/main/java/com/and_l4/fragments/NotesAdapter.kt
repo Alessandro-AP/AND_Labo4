@@ -18,6 +18,9 @@ import com.and_l4.room.models.Type
 import java.util.Calendar
 import java.util.concurrent.TimeUnit
 
+/**
+ * RecyclerViewAdapter used to manage a list of notes and deliver it to a RecyclerView.
+ */
 class NotesAdapter(private val context: Context?) :
     RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
 
@@ -29,10 +32,16 @@ class NotesAdapter(private val context: Context?) :
             diffItems.dispatchUpdatesTo(this)
         }
 
+    /**
+     * Sort the notes list according to the note's creation date.
+     */
     fun sortItemsByDate(){
         items = items.sortedBy { it.note.creationDate }
     }
 
+    /**
+     * Sort the notes list according to the note's Estimated Time of Arrival.
+     */
     fun sortItemsByETA(){
         items = items.sortedBy { it.schedule?.date }
     }
@@ -63,6 +72,9 @@ class NotesAdapter(private val context: Context?) :
         holder.bind(items[position])
     }
 
+    /**
+     * ViewHolder class containing the logic of the list item settings.
+     */
     inner class ViewHolder(private val binding: ListItemNoteBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -78,6 +90,9 @@ class NotesAdapter(private val context: Context?) :
             }
         }
 
+        /**
+         * Determine the state of the note (due date and icon color) and set it accordingly.
+         */
         private fun setNoteState(note: NoteAndSchedule) {
             val diffInMillis =
                 note.schedule!!.date.timeInMillis - Calendar.getInstance().timeInMillis
@@ -92,6 +107,9 @@ class NotesAdapter(private val context: Context?) :
             binding.listItemClock.setColorFilter(color)
         }
 
+        /**
+         * Retrieve the right note's drawable from its type.
+         */
         private fun getNoteIcon(noteType: Type): Int {
             return when (noteType) {
                 Type.FAMILY -> R.drawable.family
@@ -102,9 +120,11 @@ class NotesAdapter(private val context: Context?) :
             }
         }
     }
-
 }
 
+/**
+ * Class used to compare the identity between the elements of two lists.
+ */
 class NotesDiffCallback(private val oldList: List<NoteAndSchedule>, private val newList: List<NoteAndSchedule>) : DiffUtil.Callback() {
     override fun getOldListSize() = oldList.size
     override fun getNewListSize() = newList.size

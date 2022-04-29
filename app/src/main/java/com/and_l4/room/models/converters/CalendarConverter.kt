@@ -7,7 +7,9 @@ import androidx.room.TypeConverter
 import java.util.Date
 import java.util.Calendar
 
-
+/**
+ * Converter to manage dates with the database.
+ */
 class CalendarConverter {
     @TypeConverter
     fun toCalendar(dateLong: Long) = Calendar.getInstance().apply {

@@ -15,9 +15,7 @@ import com.and_l4.viewModels.NotesViewModel
 import com.and_l4.viewModels.NotesViewModelFactory
 
 /**
- * A simple [Fragment] subclass.
- * Use the [NotesCtrlFrag.newInstance] factory method to
- * create an instance of this fragment.
+ * A fragment showing the number of notes created and two buttons to manage the notes.
  */
 class NotesCtrlFrag : Fragment(R.layout.fragment_notes_ctrl) {
 

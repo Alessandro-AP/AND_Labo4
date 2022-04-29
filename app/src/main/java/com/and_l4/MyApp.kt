@@ -9,6 +9,10 @@ import com.and_l4.room.NotesDB
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
+/**
+ * Application override to instantiate the database singleton and
+ * the repository reference to all the application components.
+ */
 class MyApp : Application() {
 
     private val applicationScope = CoroutineScope(SupervisorJob())

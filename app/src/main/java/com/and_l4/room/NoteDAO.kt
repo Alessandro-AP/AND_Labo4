@@ -9,6 +9,9 @@ import com.and_l4.room.models.Note
 import com.and_l4.room.models.NoteAndSchedule
 import com.and_l4.room.models.Schedule
 
+/**
+ * DAO managing notes interaction with the database.
+ */
 @Dao
 interface NoteDAO {
 
